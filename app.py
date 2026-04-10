@@ -9,8 +9,8 @@ app = Flask(__name__)
 # DB CONNECTION
 # =========================
 conn = oracledb.connect(
-    user="system",       # 🔴 CHANGE
-    password="root",   # 🔴 CHANGE
+    user="system",       
+    password="root",   
     dsn="localhost:1521/XE"
 )
 cursor = conn.cursor()
@@ -28,7 +28,7 @@ documents = [
 retriever = BM25Retriever(documents)
 model = QAModel()
 
-# 🔥 GLOBAL STORAGE
+# GLOBAL STORAGE
 global_results = []
 global_query = ""
 
