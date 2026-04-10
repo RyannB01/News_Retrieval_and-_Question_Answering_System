@@ -24,7 +24,7 @@ class QAModel:
         answer = result['answer']
         score = result['score']
 
-        # ✅ If QA confident → use it
+        #  If QA confident → use it
         if score >= 0.3 and len(answer.strip()) >= 3:
             return answer
 
@@ -35,19 +35,19 @@ class QAModel:
 
         entities = self.ner_pipeline(context)
 
-        # 👉 LOCATION questions
+        # LOCATION questions
         if any(word in question_lower for word in ["where", "country", "place", "location"]):
             for ent in entities:
                 if ent['entity_group'] in ['LOC', 'GPE']:
                     return ent['word']
 
-        # 👉 PERSON questions
+        # PERSON questions
         if "who" in question_lower:
             for ent in entities:
                 if ent['entity_group'] == 'PER':
                     return ent['word']
 
-        # 👉 ORGANIZATION questions
+        # ORGANIZATION questions
         if "company" in question_lower or "organization" in question_lower:
             for ent in entities:
                 if ent['entity_group'] == 'ORG':
