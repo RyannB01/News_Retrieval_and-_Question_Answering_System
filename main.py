@@ -14,8 +14,8 @@ def check_exit(user_input):
 # CONNECT ORACLE
 # =========================
 conn = oracledb.connect(
-    user="system",        # 🔴 CHANGE THIS
-    password="root",    # 🔴 CHANGE THIS
+    user="system",      
+    password="root",    
     dsn="localhost:1521/XE"
 )
 
