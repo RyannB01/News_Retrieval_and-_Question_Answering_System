@@ -73,6 +73,4 @@ Answer: US
 * Real-time news integration
 * User authentication and personalization
 
-## Author
 
-Your Name
